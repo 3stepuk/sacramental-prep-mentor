@@ -2,30 +2,33 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sacramental Preparation — Mentor Companion</title>
 <style>
-:root{--navy:#14213d;--ink:#1a1a1a;--cream:#faf6ee;--gold:#c08a3e;--mut:#5b6472}
-*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Public Sans",Segoe UI,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
-header{background:var(--navy);color:var(--cream);padding:14px 18px;position:sticky;top:0;z-index:5}
+:root{--bg:#faf6ee;--ink:#1a1a1a;--mut:#5b6472;--gold:#c08a3e;--navy:#14213d;--card:#ffffff;--line:#e7dfcf;--hover:#efe9dc;--headfg:#faf6ee;--h2:#14213d;--strong:#14213d}
+[data-theme="dark"]{--bg:#12161f;--ink:#e7e3d9;--mut:#9aa4b2;--gold:#d8a860;--navy:#0d1424;--card:#1a2029;--line:#2a3340;--hover:#232c38;--headfg:#f2eee4;--h2:#ece7db;--strong:#e6c98d}
+*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Public Sans",Segoe UI,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+header{background:var(--navy);color:var(--headfg);padding:14px 18px;position:sticky;top:0;z-index:5}
 header h1{margin:0;font-family:Georgia,serif;font-weight:400;font-size:1.15rem;letter-spacing:.02em}
 header p{margin:2px 0 0;font-size:.78rem;opacity:.8}
 header a{color:var(--gold)}
+.tt{position:absolute;top:10px;right:14px;background:transparent;border:1px solid var(--gold);color:var(--gold);border-radius:8px;height:34px;padding:0 10px;font-size:.8rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.tt:hover{background:rgba(255,255,255,.08)}
 .wrap{display:flex;max-width:1080px;margin:0 auto;gap:0;align-items:flex-start}
 nav{width:280px;flex:0 0 280px;padding:14px;position:sticky;top:64px}
-nav button{display:block;width:100%;text-align:left;background:none;border:0;border-radius:8px;padding:9px 11px;font:inherit;font-size:.9rem;color:var(--navy);cursor:pointer}
-nav button:hover{background:#efe9dc} nav button.on{background:var(--navy);color:var(--cream)}
+nav button{display:block;width:100%;text-align:left;background:none;border:0;border-radius:8px;padding:9px 11px;font:inherit;font-size:.9rem;color:var(--ink);cursor:pointer}
+nav button:hover{background:var(--hover)} nav button.on{background:var(--navy);color:var(--headfg)}
 main{flex:1;padding:18px 22px 60px;min-width:0}
-main .lead{background:#fff;border:1px solid #e7dfcf;border-radius:12px;padding:16px 18px;margin-bottom:18px}
-main .lead h2{margin:.1em 0 .3em;font-family:Georgia,serif;font-weight:400}
+main .lead{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:18px}
+main .lead h2{margin:.1em 0 .3em;font-family:Georgia,serif;font-weight:400;color:var(--ink)}
 main .lead p{margin:.2em 0 .8em;color:var(--mut)}
 .cta{display:inline-block;background:var(--gold);color:#fff!important;text-decoration:none;padding:8px 14px;border-radius:8px;font-size:.9rem;font-weight:600}
-.guide h2{font-family:Georgia,serif;font-weight:400;font-size:1.25rem;color:var(--navy);margin:1.5em 0 .3em;border-top:1px solid #e7dfcf;padding-top:.7em}
+.guide h2{font-family:Georgia,serif;font-weight:400;font-size:1.25rem;color:var(--h2);margin:1.5em 0 .3em;border-top:1px solid var(--line);padding-top:.7em}
 .guide h3{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin:1em 0 .2em}
 .guide p{margin:.35em 0}
-.guide p strong{color:var(--navy)}
+.guide p strong{color:var(--strong)}
 .guide ul,.guide ol{margin:.4em 0 .9em;padding-left:1.35em}
 .guide li{margin:.22em 0}
-@media(max-width:760px){.wrap{display:block}nav{width:auto;position:static;padding:10px}nav button{display:inline-block;width:auto;margin:2px;border:1px solid #e7dfcf}main{padding:14px}}
-</style></head><body>
-<header><h1>Sacramental Preparation &mdash; Mentor Companion</h1>
+@media(max-width:760px){.tt{position:static;margin-top:8px}.wrap{display:block}nav{width:auto;position:static;padding:10px}nav button{display:inline-block;width:auto;margin:2px;border:1px solid var(--line)}main{padding:14px}}
+</style><script>try{var s=localStorage.getItem('mp-theme');if(!s){s=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',s);}catch(e){}</script></head><body>
+<header><button id="theme-toggle" class="tt" type="button" aria-label="Switch light or dark">&#127769; Dark</button><h1>Sacramental Preparation &mdash; Mentor Companion</h1>
 <p>St Mary&rsquo;s &bull; St John Bosco &bull; St Edward&rsquo;s Parish &mdash; choose a programme, work through it with the person you're accompanying.</p></header>
 <div class="wrap"><nav id="nav"><button data-i="0">Becoming Catholic (RCIA)</button>
 <button data-i="1">Reception into Full Communion</button>
@@ -46,4 +49,11 @@ document.getElementById('guide').innerHTML=g.html;
 document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on', +b.dataset.i===i));
 window.scrollTo(0,0);}
 document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>show(+b.dataset.i));
-show(0);</script></body></html>
+show(0);</script>
+<script>
+(function(){var d=document.documentElement;var b=document.getElementById('theme-toggle');
+function paint(){b.textContent=d.getAttribute('data-theme')==='dark'?'☀️ Light':'🌙 Dark';}
+paint();
+b.addEventListener('click',function(){var n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);try{localStorage.setItem('mp-theme',n);}catch(e){}paint();});
+})();
+</script></body></html>
